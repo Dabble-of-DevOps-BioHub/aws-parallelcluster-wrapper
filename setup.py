@@ -34,7 +34,7 @@ setup(
     description="Wrapper around AWS ParallelCluster for common Automation tasks",
     entry_points={
         'console_scripts': [
-            'aws_parallelcluster_wrapper=aws_parallelcluster_wrapper.cli:main',
+            'aws-parallelcluster-wrapper=aws_parallelcluster_wrapper.cli:main',
         ],
     },
     install_requires=requirements,

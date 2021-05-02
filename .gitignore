@@ -127,3 +127,6 @@ ENV/
 
 # Tokens
 docker_access_token
+
+docs/_source/AWS\ ParallelCluster-ETCembly.ipynb
+docs/_source/WIP

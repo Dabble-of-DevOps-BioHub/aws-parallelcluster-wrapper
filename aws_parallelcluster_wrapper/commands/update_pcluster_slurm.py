@@ -57,17 +57,7 @@ def update_pcluster(ctx, config, outdir, apply, init, create):
 
     new_work_dir = os.path.join(outdir, config_data['terraform_recipes']['pcluster_apps'])
 
-    logging.info('Running cookiecutter')
-
-    # run_cookiecutter(
-    #     outdir=outdir,
-    #     current_work_dir=os.getcwd(),
-    #     new_work_dir=new_work_dir,
-    #     cookiecutter_dir=PCLUSTER_APP_DIR,
-    #     config_data=config_data,
-    #     apply=apply,
-    #     init=init
-    # )
+    logging.info('Running pcluster update')
 
     os.chdir(new_work_dir)
     if create:
