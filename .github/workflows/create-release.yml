@@ -49,6 +49,5 @@ jobs:
           name: ${{env.DOCKER_ORG}}/${{ env.IMAGE }}
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
-          workdir: "${{ env.PROJECT_SLUG }}/${{ env.IMAGE }}"
           # Should this be tag_names?
           tags: "master, latest, ${{env.CALVER}}, ${{env.DOCKER_TAG}}, ${{env.RELEASE_TAG}}"
