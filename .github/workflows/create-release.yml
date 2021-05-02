@@ -38,7 +38,7 @@ jobs:
         run: |
           CALVER="$( date -u '+%Y.%m.%d' )"
           SHA7="${GITHUB_SHA::7}"
-          IMAGE_SPEC="${DOCKER_ORG}/${{env.PROJECT_SLUG}}:${DOCKER_TAG}"
+          IMAGE_SPEC="${DOCKER_ORG}/${{PROJECT_SLUG}}:${DOCKER_TAG}"
           echo "CALVER=${CALVER}" >> $GITHUB_ENV
           echo "DOCKER_TAG=${DOCKER_TAG}" >> $GITHUB_ENV
           echo "IMAGE_SPEC=${IMAGE_SPEC}" >> $GITHUB_ENV
@@ -46,7 +46,7 @@ jobs:
       - name: Build and Publish to DockerHub
         uses: elgohr/Publish-Docker-Github-Action@2.12
         with:
-          name: ${{env.DOCKER_ORG}}/${{ env.IMAGE }}
+          name: ${{env.DOCKER_ORG}}/${{PROJECT_SLUG}}
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           # Should this be tag_names?
