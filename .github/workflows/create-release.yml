@@ -46,7 +46,7 @@ jobs:
       - name: Build and Publish to DockerHub
         uses: elgohr/Publish-Docker-Github-Action@2.12
         with:
-          name: ${{env.DOCKER_ORG}}/${env.PROJECT_SLUG}
+          name: ${{env.DOCKER_ORG}}/${{env.PROJECT_SLUG}}
           username: ${{ secrets.DOCKERHUB_USER }}
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           # Should this be tag_names?
