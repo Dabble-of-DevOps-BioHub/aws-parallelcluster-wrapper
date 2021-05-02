@@ -1,0 +1,32 @@
+name: Qatar Genome Maven Docker Build
+on: [push]
+
+env:
+  PROJECT_SLUG: "aws-parallelcluster-wrapper"
+  DOCKER_ORG: "dabbleofdevops"
+  GITHUB_SHA: ${{ github.sha }}
+  GITHUB_REF: ${{ github.ref }}
+
+jobs:
+  maven-docker-build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v2
+      - name: Set Job Environmental Variables 
+        run: |
+          CALVER="$( date -u '+%Y.%m.%d' )"
+          SHA7="${GITHUB_SHA::7}"
+          IMAGE_SPEC="${DOCKER_ORG}/aws_parallelcluster_wrapper:${DOCKER_TAG}"
+          echo "CALVER=${CALVER}" >> $GITHUB_ENV
+          echo "DOCKER_TAG=${DOCKER_TAG}" >> $GITHUB_ENV
+          echo "IMAGE_SPEC=${IMAGE_SPEC}" >> $GITHUB_ENV
+      - name: Build and Publish to DockerHub
+        uses: elgohr/Publish-Docker-Github-Action@2.12
+        with:
+          name: ${{env.DOCKER_ORG}}/${{ env.IMAGE }}
+          username: ${{ secrets.DOCKERHUB_USER }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
+          # workdir: "${{ env.PROJECT_SLUG }}/${{ env.IMAGE }}"
+          # Should this be tag_names?
+          tags: "latest, ${{env.CALVER}}, ${{env.DOCKER_TAG}}"

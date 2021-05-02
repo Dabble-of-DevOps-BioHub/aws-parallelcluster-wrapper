@@ -1,0 +1,141 @@
+{
+    "id": "20210127-ydy1fb",
+    "hosted_zone_id": "",
+    "_copy_without_render": [
+        "files/installation/deploy_jupyterhub/jupyterhub_config.py"
+    ],
+    "project": "slurm-cluster",
+    "stage": "development",
+    "vpc_id": "",
+    "aws_region": "us-east-1",
+    "custom_ami_id": "",
+    "cloudformation_stack": "parallelcluster-{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}",
+    "s3_installation_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-installation",
+    "s3_user_data_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-user-data",
+    "s3_admin_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-admin",
+    "tags": {
+        "Name": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}",
+        "Project": "{{cookiecutter.project}}",
+        "Stage": "{{cookiecutter.stage}}"
+    },
+    "terraform_recipes": {
+        "terraform_state": "terraform-state",
+        "pcluster_resources": "pcluster-resources",
+        "pcluster_apps": "pcluster-apps"
+    },
+    "terraform_state": {
+        "s3_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}",
+        "s3_bucket_full_name": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-terraform-state",
+        "dynamo_db_table": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-terraform-state-lock"
+    },
+    "terraform_output": {
+        "terraform_state": {},
+        "pcluster_resources": {},
+        "pcluster_apps": {}
+    },
+    "pcluster": {
+        "master_instance_type": "t3a.2xlarge",
+        "scheduler": "slurm",
+        "base_os": "alinux2",
+        "pcluster_version": "2.10.1",
+        "key_pair": "",
+        "min_cluster_size": 0,
+        "max_cluster_size": 100,
+        "head_node_instance_type": "t3a.2xlarge",
+        "compute_node_instance_type": "t3a.2xlarge",
+        "master_subnet_id": "",
+        "compute_subnet_id": "",
+        "compute_resources": [
+            {
+                "instance_type": "t3a.medium",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "t3a.large",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "t3a.2xlarge",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "m4.large",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "m4.xlarge",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "m4.2xlarge",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "g4dn.xlarge",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "g4dn.2xlarge",
+                "min_count": 0,
+                "max_count": 100
+            },
+            {
+                "instance_type": "g4dn.4xlarge",
+                "min_count": 0,
+                "max_count": 100
+            }
+        ],
+        "queues": [
+            {
+                "name": "dev",
+                "enable_efa": false,
+                "enable_efa_gdr": false,
+                "compute_resource_instance_types": [
+                    "t3a.medium",
+                    "t3a.large",
+                    "t3a.2xlarge"
+                ]
+            },
+            {
+                "name": "cpu",
+                "enable_efa": false,
+                "enable_efa_gdr": false,
+                "compute_resource_instance_types": [
+                    "m4.large",
+                    "m4.xlarge",
+                    "m4.2xlarge"
+                ]
+            },
+            {
+                "name": "gpu",
+                "enable_efa": false,
+                "enable_efa_gdr": false,
+                "compute_resource_instance_types": [
+                    "g4dn.xlarge",
+                    "g4dn.2xlarge",
+                    "g4dn.4xlarge"
+                ]
+            }
+        ],
+        "queue_settings": "",
+        "efs_resources": [
+            {
+                "name": "apps",
+                "efs_id": false,
+                "performance_mode": "generalPurpose"
+            },
+            {
+                "name": "scratch",
+                "efs_id": false,
+                "performance_mode": "maxIO"
+            }
+        ]
+    }
+}

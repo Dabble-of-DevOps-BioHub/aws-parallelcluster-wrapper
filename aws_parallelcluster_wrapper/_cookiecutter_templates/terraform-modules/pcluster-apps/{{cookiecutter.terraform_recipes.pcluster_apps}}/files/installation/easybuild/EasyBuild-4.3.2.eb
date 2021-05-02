@@ -1,0 +1,22 @@
+##
+# This is an easyconfig file for EasyBuild, see https://github.com/easybuilders/easybuild
+##
+
+easyblock = 'Conda'
+
+name = "EasyBuild"
+version = "4.3.2"
+
+homepage = 'https://easybuild.readthedocs.io/en/latest'
+description =  """Welcome to the documentation of EasyBuild, a software build and installation framework that allows you to manage (scientific) software on High Performance Computing (HPC) systems in an efficient way."""
+
+toolchain = SYSTEM
+
+environment_file = "/apps/software-configs/easybuild-4.3.2.yml"
+
+builddependencies = [('Miniconda3', '4.7.10')]
+
+modextravars = {
+    'EASYBUILD_PREFIX': '/apps/easybuild/1.0',
+}
+

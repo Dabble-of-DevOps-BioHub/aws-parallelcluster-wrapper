@@ -1,0 +1,6 @@
+cookiecutter
+aws-parallelcluster
+awscli
+pandas
+boto3
+jsonschema

@@ -1,0 +1,10 @@
+# .bashrc
+
+# Source global definitions
+if [ -f /etc/bashrc ]; then
+        . /etc/bashrc
+fi
+
+# Modules
+source /usr/share/lmod/lmod/init/bash
+export MODULEPATH=/apps/easybuild/1.0/modules/all

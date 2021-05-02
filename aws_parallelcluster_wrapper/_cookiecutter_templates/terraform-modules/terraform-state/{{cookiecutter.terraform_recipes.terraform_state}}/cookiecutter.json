@@ -1,0 +1,87 @@
+{
+    "additional_security_group_id": "ADDITIONAL_SECURITY_GROUP_ID",
+    "aws_region": "us-east-1",
+    "create_efs": false,
+    "custom_ami_id": "CUSTOM_AMI_ID",
+    "hosted_zone_id": "",
+    "id": "20210127",
+    "pcluster": {
+        "base_os": "alinux2",
+        "compute_node_instance_type": "t3a.2xlarge",
+        "compute_resources": [
+            {
+                "instance_type": "t3a.medium",
+                "max_count": 100,
+                "min_count": 0
+            },
+            {
+                "instance_type": "t3a.2xlarge",
+                "max_count": 100,
+                "min_count": 0
+            }
+        ],
+        "compute_subnet_id": "",
+        "efs_resources": [
+            {
+                "name": "apps"
+            },
+            {
+                "name": "scratch"
+            }
+        ],
+        "head_node_instance_type": "t3a.2xlarge",
+        "key_pair": "",
+        "master_subnet_id": "",
+        "max_cluster_size": 100,
+        "min_cluster_size": 0,
+        "pcluster_version": "2.10.1",
+        "queue_settings": "",
+        "queues": [
+            {
+                "compute_resource_instance_types": [
+                    "t3a.medium",
+                    "t3a.2xlarge"
+                ],
+                "enable_efa": false,
+                "enable_efa_gdr": false,
+                "name": "dev"
+            },
+            {
+                "compute_resource_instance_types": [
+                    "t3a.medium",
+                    "t3a.2xlarge"
+                ],
+                "enable_efa": false,
+                "enable_efa_gdr": false,
+                "name": "cpu"
+            },
+            {
+                "compute_resource_instance_types": [
+                    "t3a.medium",
+                    "t3a.2xlarge"
+                ],
+                "enable_efa": false,
+                "enable_efa_gdr": false,
+                "name": "gpu"
+            }
+        ],
+        "scheduler": "slurm"
+    },
+    "project": "slurm-cluster",
+    "s3_admin_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-admin",
+    "s3_installation_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-installation",
+    "s3_user_data_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-user-data",
+    "stage": "development",
+    "tags": "development",
+    "terraform_recipes": {
+        "pcluster_apps": "pcluster-apps",
+        "pcluster_resources": "pcluster-resources",
+        "terraform_state": "terraform-state"
+    },
+    "terraform_state": {
+        "dynamo_db_table": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-terraform-state-lock",
+        "s3_bucket": "{{cookiecutter.project}}-{{cookiecutter.id}}",
+        "s3_bucket_full_name": "{{cookiecutter.project}}-{{cookiecutter.id}}-{{cookiecutter.stage}}-terraform-state"
+    },
+    "vpc_id": "vpc-2658435c"
+}

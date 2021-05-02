@@ -1,0 +1,10 @@
+name: eb-4.3.2
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - jinja2
+  - pip
+  - anaconda-client
+  - pip:                            # Packages installed from PyPI
+    - easybuild==4.3.2
