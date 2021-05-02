@@ -14,9 +14,7 @@ AWS ParallelCluster Wrapper
         :alt: Documentation Status
 
 
-
-
-Wrapper around AWS ParallelCluster for common Automation tasks
+Wrapper around AWS ParallelCluster CLI to use in an automated setting.
 
 
 * Free software: MIT license
@@ -31,9 +29,11 @@ Features
 Example
 --------
 
-aws_parallelcluster_wrapper apply-terraform-state --outdir ~/etcembly/project/slurm-cluster-development/terraform-state ---config ~/etcembly/cookiecutter.json -apply --init
-aws_parallelcluster_wrapper deploy-pcluster-resources --outdir ~/etcembly/project/slurm-cluster-development/pcluster-resources --apply --init --config ~/etcembly/cookiecutter.json
-aws_parallelcluster_wrapper create-pcluster --outdir ~/etcembly/project/slurm-cluster-development/pcluster-apps --apply --init --config ~/etcembly/cookiecutter.json
+aws_parallelcluster_wrapper apply-terraform-state --outdir ~/client/project/slurm-cluster-development/terraform-state ---config ~/client/cookiecutter.json -apply --init
+
+aws_parallelcluster_wrapper deploy-pcluster-resources --outdir ~/client/project/slurm-cluster-development/pcluster-resources --apply --init --config ~/client/cookiecutter.json
+
+aws_parallelcluster_wrapper create-pcluster --outdir ~/client/project/slurm-cluster-development/pcluster-apps --apply --init --config ~/client/cookiecutter.json
 
 Credits
 -------
