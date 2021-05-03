@@ -9,4 +9,3 @@ jupyter-book==0.9.1
 livereload
 twine==1.14.0
 Click==7.0
-

@@ -4,3 +4,4 @@ awscli
 pandas
 boto3
 jsonschema
+Click==7.0
