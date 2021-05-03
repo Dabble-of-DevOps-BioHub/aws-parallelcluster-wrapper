@@ -49,7 +49,7 @@ setup(
     setup_requires=setup_requirements,
     test_suite='tests',
     tests_require=test_requirements,
-    url='https://github.com/jerowe/aws_parallelcluster_wrapper',
+    url='https://github.com/Dabble-of-DevOps-BioHub/aws-parallelcluster-wrapper',
     version='0.1.0',
     zip_safe=False,
 )
