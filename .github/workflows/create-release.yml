@@ -51,3 +51,6 @@ jobs:
           password: ${{ secrets.DOCKERHUB_TOKEN }}
           # Should this be tag_names?
           tags: "master, latest, ${{env.CALVER}}, ${{env.DOCKER_TAG}}, ${{env.RELEASE_TAG}}"
+      - name: Test for CLI
+        run: |
+          docker run --rm -it dabbleofdevops/aws-parallelcluster-wrapper:${{env.RELEASE_TAG}} bash -c "awsp --help"

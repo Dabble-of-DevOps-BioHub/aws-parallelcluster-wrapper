@@ -31,4 +31,4 @@ jobs:
           tags: "latest, ${{env.CALVER}}, ${{env.DOCKER_TAG}}"
       - name: Test for CLI
         run: |
-          docker run --rm -it dabbleofdevops/aws-parallelcluster-wrapper:latest bash -c "aws-parallelcluster-wrapper"
+          docker run --rm -it dabbleofdevops/aws-parallelcluster-wrapper:latest bash -c "awsp --help"
