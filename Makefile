@@ -83,3 +83,19 @@ dist: clean ## builds source and wheel package
 
 install: clean ## install the package to the active Python's site-packages
 	python setup.py install
+
+build-docker-clean:
+	$(MAKE) clean
+	docker build --no-cache -t dabbleofdevops/aws-parallelcluster-wrapper .
+
+build-docker:
+	$(MAKE) clean
+	docker build -t dabbleofdevops/aws-parallelcluster-wrapper .
+
+test-docker:
+	$(MAKE) build-docker-clean
+	docker run --rm -it dabbleofdevops/aws-parallelcluster-wrapper bash -c "aws-parallelcluster-wrapper"
+
+run-docker:
+	$(MAKE) build-docker
+	docker run --rm -it dabbleofdevops/aws-parallelcluster-wrapper bash
