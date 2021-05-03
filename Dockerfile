@@ -23,7 +23,7 @@ ADD ./* /home/aws_parallelcluster_wrapper/
 WORKDIR /home/aws_parallelcluster_wrapper
 
 # All imports needed for autodoc.
-RUN bash -c "pip install --no-cache-dir -r ./requirements_dev.txt -r ./requirements.txt"
+RUN bash -c "pip install --no-cache-dir -r ./requirements_dev.txt -r ./requirements.txt; python setup.py build; python setup.py install"
 
 # RUN bash -c "make install"
 
