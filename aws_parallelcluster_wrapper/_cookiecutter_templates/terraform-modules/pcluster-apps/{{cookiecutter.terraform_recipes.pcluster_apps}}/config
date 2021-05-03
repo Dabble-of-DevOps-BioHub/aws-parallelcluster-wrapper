@@ -18,8 +18,8 @@ vpc_settings = default
 queue_settings = {{cookiecutter.pcluster.queue_settings}}
 custom_ami = {{cookiecutter.terraform_output.pcluster_resources.pcluster_custom_ami_id.value}}
 ephemeral_dir = /data
-compute_root_volume_size = 32
-master_root_volume_size = 32
+compute_root_volume_size = {{cookiecutter.pcluster.compute_root_volume_size}} 
+master_root_volume_size = {{cookiecutter.pcluster.master_root_volume_size}} 
 
 
 s3_read_resource = arn:aws:s3:::{{cookiecutter.s3_installation_bucket}}/*

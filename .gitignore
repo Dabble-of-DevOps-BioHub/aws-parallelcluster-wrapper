@@ -128,5 +128,7 @@ ENV/
 # Tokens
 docker_access_token
 
+# Removing some me screwing around docs
 docs/_source/AWS\ ParallelCluster-ETCembly.ipynb
 docs/_source/WIP
+dev

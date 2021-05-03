@@ -39,10 +39,8 @@
         "base_os": "alinux2",
         "pcluster_version": "2.10.1",
         "key_pair": "",
-        "min_cluster_size": 0,
-        "max_cluster_size": 100,
-        "head_node_instance_type": "t3a.2xlarge",
-        "compute_node_instance_type": "t3a.2xlarge",
+        "compute_root_volume_size": 32,
+        "master_root_volume_size": 32,
         "master_subnet_id": "",
         "compute_subnet_id": "",
         "compute_resources": [

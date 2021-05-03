@@ -4,7 +4,7 @@ import click
 
 import os
 from aws_parallelcluster_wrapper.commands import apply_terraform_state, deploy_pcluster_resources, \
-    configure_pcluster_slurm
+    configure_pcluster_slurm, update_pcluster_slurm
 
 
 @click.group(help="CLI to help manage SLURM Clusters with AWS Parallelcluster")
@@ -16,6 +16,7 @@ def cli(ctx):
 cli.add_command(apply_terraform_state.apply_terraform_state)
 cli.add_command(deploy_pcluster_resources.deploy_pcluster_resources)
 cli.add_command(configure_pcluster_slurm.create_pcluster)
+cli.add_command(update_pcluster_slurm.update_pcluster)
 
 
 def main():
