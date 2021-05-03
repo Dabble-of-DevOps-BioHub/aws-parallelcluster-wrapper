@@ -1,5 +1,5 @@
 
-name: Docker Build
+name: Python Build 
 on: [push]
 
 env:
