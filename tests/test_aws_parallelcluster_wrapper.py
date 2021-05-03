@@ -6,7 +6,7 @@
 import unittest
 from click.testing import CliRunner
 
-from aws_parallelcluster_wrapper import aws_parallelcluster_wrapper
+from aws_parallelcluster_wrapper 
 from aws_parallelcluster_wrapper import cli
 
 

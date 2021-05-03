@@ -17,10 +17,10 @@ RUN wget https://releases.hashicorp.com/terraform/${TERRAFORM_VERSION}/terraform
 
 
 RUN echo "alias l='ls -lah'" >> ~/.bashrc
-RUN mkdir -p /home/aws_parallelcluster_wrapper
-RUN rm -rf /home/aws_parallelcluster_wrapper/*
-ADD ./* /home/aws_parallelcluster_wrapper/
-WORKDIR /home/aws_parallelcluster_wrapper
+RUN mkdir -p /tmp/aws_parallelcluster_wrapper
+RUN rm -rf /tmp/aws_parallelcluster_wrapper/*
+ADD ./* /tmp/aws_parallelcluster_wrapper/
+WORKDIR /tmp/aws_parallelcluster_wrapper
 
 # All imports needed for autodoc.
 RUN bash -c "pip install --no-cache-dir -r ./requirements_dev.txt -r ./requirements.txt; python setup.py build; python setup.py install"

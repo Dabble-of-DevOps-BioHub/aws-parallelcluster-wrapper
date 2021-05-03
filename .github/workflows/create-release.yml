@@ -10,7 +10,7 @@ env:
   GITHUB_REF: ${{ github.ref }}
 
 jobs:
-  build:
+  create-release:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
